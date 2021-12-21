@@ -6,7 +6,10 @@
 <% else %>
   <% @user.posts.each do |post| %>
     <h2><%= post.title %></h2>
-    <p><%= post.body %></p><br><br>
+    <p><%= post.body %></p>
+    <%= link_to 'edit', edit_user_post_path(@user, post) %>
+    <%= link_to 'delete post', user_post_path(@user, post),
+                 method: :delete, data: { confirmation: 'Are you sure?' } %>
   <% end %>
 <% end %><br><br>
 

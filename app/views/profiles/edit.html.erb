@@ -1,0 +1,11 @@
+<%= form_with model: [:user, @profile], url: user_profile_path(@profile.user_id, @profile.id) do |form| %>
+  <%= form.label :name%>
+  <%= form.text_field :name %><br><br>
+
+  <%= form.label :age %>
+  <%= form.number_field :age, in: 1..99, step: 1%><br><br>
+
+  <%= form.submit 'Update' %>
+<% end %>
+
+

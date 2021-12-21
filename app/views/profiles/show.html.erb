@@ -1,0 +1,7 @@
+<h1><%= @user.username %></h1>
+
+<h3>Name: <%= @profile.name %></h3>
+<h3>Age: <%= @profile.age %></h3>
+
+<%= link_to 'Edit profile', edit_user_profile_path(@user.id, @profile.id) %>
+<%= link_to 'Go back', root_path %>
