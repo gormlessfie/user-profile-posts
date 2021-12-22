@@ -5,7 +5,7 @@
     <h5><%= post.title %></h5>
 
     <% if @current_user %>
-      <h6><%= post.user_id %></h6>
+      <h6>by: <%= post.user.username %></h6>
     <% end %>
 
     <p><%= post.body %></p>
