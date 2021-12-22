@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @posts = Post.all.order('created_at DESC')
+    @current_user = current_user
   end
 
   def show
@@ -13,16 +14,17 @@ class UsersController < ApplicationController
   
     if @user.save
       @user.create_profile(name: 'John Smith', age: 13)
-      sessions[:current_user_id] = @user.id
+      session[:current_user_id] = @user.id
       redirect_to users_path, notice: 'Account creation successful!'
     else
-      redirect_to users_path, notice: 'Error! Unsuccessful!'
+      redirect_to users_path, notice: 'Something went wrong! Please follow the error messages.'
     end
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    session[:current_user_id] = nil
 
     redirect_to root_path
   end
