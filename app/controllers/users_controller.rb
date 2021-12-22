@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show, :destroy]
+
   def index
     @users = User.all
     @posts = Post.all.order('created_at DESC')
