@@ -25,5 +25,12 @@
   <%= form.label :username, 'New user: ' %>
   <%= form.text_field 'user[username]' %><br><br>
 
+
+  <%= form.label :password, 'Password: '%>
+  <%= form.text_field :password %><br><br>
+
+  <%= form.label :password_confirmation, 'Confirm password: ' %>
+  <%= form.text_field :password_confirmation %><br><br>
+
   <%= form.submit %>
 <% end %>
