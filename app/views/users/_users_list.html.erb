@@ -7,11 +7,14 @@
     <% @users.each do |user| %>
       <li>
         <%= user.username %>
-        <%= link_to 'user\'s profile', user_profile_path(user.id, user.profile.id) %>
-        <%= link_to 'see user\'s posts', user_path(user) %>
-        <% if @current_user && user.id == @current_user.id %>
-          <%= link_to 'Delete user', user_path(user), 
-                       method: :delete, data: { confirmation: 'Are you sure?' } %>
+        <% if @current_user %>
+          <%= link_to 'user\'s profile', user_profile_path(user.id, user.profile.id) %>
+          <%= link_to 'see user\'s posts', user_path(user) %>
+
+          <% if user.id == @current_user.id %>
+            <%= link_to 'Delete user', user_path(user), 
+                        method: :delete, data: { confirmation: 'Are you sure?' } %>
+          <% end %>
         <% end %>
       </li>
     <% end %>
