@@ -1,0 +1,13 @@
+<%= form_with model: @user, url: '/users' do |form| %>
+  <%= form.label :username, 'New user: ' %>
+  <%= form.text_field 'user[username]' %><br><br>
+
+
+  <%= form.label :password, 'Password: '%>
+  <%= form.password_field 'user[password]' %><br><br>
+
+  <%= form.label :password_confirmation, 'Confirm password: ' %>
+  <%= form.password_field 'user[password_confirmation]' %><br><br>
+
+  <%= form.submit %>
+<% end %>

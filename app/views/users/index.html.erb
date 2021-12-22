@@ -1,36 +1,5 @@
-<h2>List of Users</h2>
+<%= render 'users_list' %>
 
-<% if @users.empty? %>
-  <h3>There are no registered users.</h3>
-<% else %>
-  <ul>
-    <% @users.each do |user| %>
-      <li>
-        <%= user.username %>
-        <%= link_to 'user\'s profile', user_profile_path(user.id, user.profile.id) %>
-        <%= link_to 'see user\'s posts', user_path(user) %>
-        <%= link_to 'Delete user', user_path(user), 
-                    method: :delete, data: { confirmation: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul><br><br>
-<% end %>
+<%= render 'posts_list' %>
 
-<% @posts.each do |post| %>
-  <h5><%= post.title %></h5>
-  <p><%= post.body %></p>
-<% end %><br><br>
-
-<%= form_with model: @user, url: '/users' do |form| %>
-  <%= form.label :username, 'New user: ' %>
-  <%= form.text_field 'user[username]' %><br><br>
-
-
-  <%= form.label :password, 'Password: '%>
-  <%= form.password_field 'user[password]' %><br><br>
-
-  <%= form.label :password_confirmation, 'Confirm password: ' %>
-  <%= form.password_field 'user[password_confirmation]' %><br><br>
-
-  <%= form.submit %>
-<% end %>
+<%= render 'form' %>

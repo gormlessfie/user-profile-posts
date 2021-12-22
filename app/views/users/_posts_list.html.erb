@@ -1,0 +1,8 @@
+<% if @posts.empty? %>
+  <h3>There are no posts.</h3>
+<% else %>
+  <% @posts.each do |post| %>
+    <h5><%= post.title %></h5>
+    <p><%= post.body %></p>
+  <% end %><br><br>
+<% end %><br><br>
